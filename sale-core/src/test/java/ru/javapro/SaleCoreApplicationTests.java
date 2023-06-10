@@ -1,13 +1,13 @@
-package javapro.SaleService;
+package ru.javapro;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SaleServiceApplicationTests {
+class SaleCoreApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+    @Test
+    void contextLoads() {
+    }
 
 }
