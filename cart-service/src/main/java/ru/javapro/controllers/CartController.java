@@ -1,4 +1,4 @@
-package javapro.controllers;
+package ru.javapro.controllers;
 
 public class CartController {
 }

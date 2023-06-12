@@ -1,4 +1,4 @@
-package javapro.services;
+package ru.javapro.services;
 
 public class CartService {
 }
