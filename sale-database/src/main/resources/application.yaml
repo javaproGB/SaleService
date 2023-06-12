@@ -1,0 +1,13 @@
+spring:
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/saleservice
+    username: postgres
+    password: admin
+    driverClassName: org.postgresql.Driver
+  jackson:
+    serialization:
+      INDENT_OUTPUT: true
