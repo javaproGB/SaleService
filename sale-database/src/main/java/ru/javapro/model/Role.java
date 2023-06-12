@@ -4,31 +4,25 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
 @DynamicInsert
 @DynamicUpdate
-@Table(name = "users")
-public class User {
+@Table(name = "roles")
+public class Role {
 
     @Id
     @Column(name = "id")
     private UUID id;
 
-    @Column(name = "username")
-    private String username;
-
-    @Column(name = "password")
-    private String password;
-
-    @Column(name = "email")
-    private String email;
-
-    @Column(name = "address")
-    private String address;
+    @Column(name = "description")
+    private String description;
 
     @CreationTimestamp
     @Column(name = "created_at")
@@ -37,8 +31,4 @@ public class User {
     @CreationTimestamp
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
-
-    @OneToOne(mappedBy = "adverts")
-    private Advert adverts;
 }
-

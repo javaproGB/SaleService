@@ -11,24 +11,15 @@ import java.util.UUID;
 @Entity
 @DynamicInsert
 @DynamicUpdate
-@Table(name = "users")
-public class User {
+@Table(name = "categories")
+public class Category {
 
     @Id
     @Column(name = "id")
     private UUID id;
 
-    @Column(name = "username")
-    private String username;
-
-    @Column(name = "password")
-    private String password;
-
-    @Column(name = "email")
-    private String email;
-
-    @Column(name = "address")
-    private String address;
+    @Column(name = "description")
+    private String description;
 
     @CreationTimestamp
     @Column(name = "created_at")
@@ -41,4 +32,3 @@ public class User {
     @OneToOne(mappedBy = "adverts")
     private Advert adverts;
 }
-
