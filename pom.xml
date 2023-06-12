@@ -29,6 +29,7 @@
         <module>sale-gateway</module>
         <module>sale-database</module>
         <module>sale-core</module>
+        <module>cart-service</module>
     </modules>
 
     <dependencyManagement>
