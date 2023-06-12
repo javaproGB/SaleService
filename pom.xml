@@ -25,6 +25,7 @@
     </properties>
 
     <modules>
+        <module>sale-gateway</module>
         <module>sale-database</module>
         <module>sale-core</module>
     </modules>
