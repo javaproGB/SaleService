@@ -8,7 +8,7 @@ import ru.javapro.models.CartDto;
 import ru.javapro.services.CartService;
 
 @RestController
-@RequestMapping("/api/v1/cart")
+@RequestMapping("/api/v1/carts")
 public class CartController {
     private final CartService cartService;
     private final CartConvertor cartConvertor;

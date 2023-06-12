@@ -1,5 +1,6 @@
 package ru.javapro.services;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import ru.javapro.models.Advert;
@@ -11,8 +12,8 @@ import java.util.function.Consumer;
 @Service
 public class CartService {
     private final RedisTemplate<String, Object> redisTemplate;
-
-    private final String cartPrefix="cart_";
+    @Value("${cart-service.cart-prefix}")
+    private String cartPrefix;
 
     public CartService(RedisTemplate<String, Object> redisTemplate) {
         this.redisTemplate = redisTemplate;
