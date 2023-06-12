@@ -10,6 +10,14 @@ public class Cart {
         this.advertList = new ArrayList<>();
     }
 
+    public List<Advert> getAdvertList() {
+        return advertList;
+    }
+
+    public void setAdvertList(List<Advert> advertList) {
+        this.advertList = advertList;
+    }
+
     public void addAdvertToCart(Advert advert) {
         advertList.add(advert);
     }

@@ -3,6 +3,7 @@ package ru.javapro.services;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import ru.javapro.models.Advert;
+import ru.javapro.models.AdvertDto;
 import ru.javapro.models.Cart;
 
 import java.util.function.Consumer;
