@@ -12,7 +12,7 @@ import java.util.UUID;
 @DynamicInsert
 @DynamicUpdate
 @Table(name = "users")
-public class Users {
+public class User {
 
     @Id
     @Column(name = "id")
@@ -39,6 +39,6 @@ public class Users {
     private LocalDateTime updatedAt;
 
     @OneToOne(mappedBy = "adverts")
-    private Adverts adverts;
+    private Advert adverts;
 }
 

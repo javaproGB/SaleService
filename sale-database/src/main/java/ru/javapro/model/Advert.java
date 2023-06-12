@@ -12,7 +12,7 @@ import java.util.UUID;
 @DynamicInsert
 @DynamicUpdate
 @Table(name = "adverts")
-public class Adverts {
+public class Advert {
 
     @Id
     @Column(name = "id")
@@ -43,9 +43,9 @@ public class Adverts {
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private Users users;
+    private User users;
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id", referencedColumnName = "id")
-    private Categories categories;
+    private Category categories;
 }

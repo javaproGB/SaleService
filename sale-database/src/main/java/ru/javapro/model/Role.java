@@ -4,15 +4,18 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
 @DynamicInsert
 @DynamicUpdate
-@Table(name = "categories")
-public class Categories {
+@Table(name = "roles")
+public class Role {
 
     @Id
     @Column(name = "id")
@@ -28,7 +31,4 @@ public class Categories {
     @CreationTimestamp
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
-
-    @OneToOne(mappedBy = "adverts")
-    private Adverts adverts;
 }
