@@ -8,7 +8,7 @@ import ru.javapro.models.CartDto;
 import ru.javapro.services.CartService;
 
 @RestController
-@RequestMapping("/api/v1/carts")
+@RequestMapping("/api/v1/users")
 public class CartController {
     private final CartService cartService;
     private final CartConvertor cartConvertor;
@@ -20,25 +20,25 @@ public class CartController {
         this.advertConvertor = advertConvertor;
     }
 
-    @GetMapping("/")
-    public CartDto getCurrentCart(@RequestHeader(name = "username") String username) {
+    @GetMapping("/{username}/carts")
+    public CartDto getCurrentCart(@PathVariable(name = "username") String username) {
         return cartConvertor.entityToDto(cartService.getCurrentCart(username));
     }
 
-    @PostMapping("/add")
-    public CartDto addAdvertToCart(@RequestHeader(name = "username") String username, @RequestBody AdvertDto advertDto) {
+    @PostMapping("{username}/carts/add-item")
+    public CartDto addAdvertToCart(@PathVariable(name = "username") String username, @RequestBody AdvertDto advertDto) {
         return cartConvertor.entityToDto(cartService.addAdvertToCart(username, advertConvertor.dtoToEntity(advertDto)));
 
     }
 
-    @PostMapping("/clear")
-    public CartDto clearCart(@RequestHeader(name = "username") String username) {
+    @PostMapping("/{username}/carts/clear")
+    public CartDto clearCart(@PathVariable(name = "username") String username) {
         return cartConvertor.entityToDto(cartService.clearCart(username));
 
     }
 
-    @PostMapping("/delete")
-    public CartDto deleteAdvertFromCart(@RequestHeader(name = "username") String username, @RequestBody AdvertDto advertDto) {
+    @PostMapping("/{username}/carts/delete-item")
+    public CartDto deleteAdvertFromCart(@PathVariable(name = "username") String username, @RequestBody AdvertDto advertDto) {
         return cartConvertor.entityToDto(cartService.deleteAdvertFromCart(username, advertConvertor.dtoToEntity(advertDto)));
     }
 }
