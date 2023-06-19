@@ -19,20 +19,24 @@ public class CartController {
         this.cartConvertor = cartConvertor;
         this.advertConvertor = advertConvertor;
     }
+
     @GetMapping("/")
     public CartDto getCurrentCart(@RequestHeader(name = "username") String username) {
         return cartConvertor.entityToDto(cartService.getCurrentCart(username));
     }
-@PostMapping("/add")
+
+    @PostMapping("/add")
     public CartDto addAdvertToCart(@RequestHeader(name = "username") String username, @RequestBody AdvertDto advertDto) {
         return cartConvertor.entityToDto(cartService.addAdvertToCart(username, advertConvertor.dtoToEntity(advertDto)));
 
     }
-@PostMapping("/clear")
+
+    @PostMapping("/clear")
     public CartDto clearCart(@RequestHeader(name = "username") String username) {
         return cartConvertor.entityToDto(cartService.clearCart(username));
 
     }
+
     @PostMapping("/delete")
     public CartDto deleteAdvertFromCart(@RequestHeader(name = "username") String username, @RequestBody AdvertDto advertDto) {
         return cartConvertor.entityToDto(cartService.deleteAdvertFromCart(username, advertConvertor.dtoToEntity(advertDto)));
