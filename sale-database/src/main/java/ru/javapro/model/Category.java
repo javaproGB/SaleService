@@ -29,6 +29,6 @@ public class Category {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    @OneToOne(mappedBy = "adverts")
-    private Advert adverts;
+//    @OneToOne(cascade = CascadeType.ALL, mappedBy = "adverts")
+//    private Advert adverts;
 }
