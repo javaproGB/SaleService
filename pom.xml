@@ -30,6 +30,7 @@
         <module>sale-database</module>
         <module>sale-core</module>
         <module>cart-service</module>
+        <module>front-service</module>
     </modules>
 
     <dependencyManagement>
