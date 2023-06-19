@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import ru.javapro.models.Advert;
-import ru.javapro.models.AdvertDto;
 import ru.javapro.models.Cart;
 
 import java.util.function.Consumer;
@@ -12,11 +11,12 @@ import java.util.function.Consumer;
 @Service
 public class CartService {
     private final RedisTemplate<String, Object> redisTemplate;
-    @Value("${cart-service.cart-prefix}")
-    private String cartPrefix;
 
-    public CartService(RedisTemplate<String, Object> redisTemplate) {
+    private final String cartPrefix;
+
+    public CartService(RedisTemplate<String, Object> redisTemplate, @Value("${cart-service.cart-prefix}") String cartPrefix) {
         this.redisTemplate = redisTemplate;
+        this.cartPrefix = cartPrefix;
     }
 
     public Cart getCurrentCart(String username) {
