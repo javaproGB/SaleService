@@ -13,7 +13,8 @@ import java.util.UUID;
 public class RolesRepositories {
     private final RolesRepositoriesDao rolesRepositoriesDao;
 
-    public Role getRoleById (UUID uuid) {
-        return rolesRepositoriesDao.getReferenceById(uuid);
+    public Role getRoleById(UUID uuid) {
+//        return rolesRepositoriesDao.getReferenceById(uuid);
+        return rolesRepositoriesDao.findById(uuid).get();
     }
 }

@@ -1,16 +1,24 @@
 package ru.javapro.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
 @DynamicInsert
 @DynamicUpdate
+@NoArgsConstructor
+@Getter
+@Setter
 @Table(name = "adverts")
 public class Advert {
 
@@ -25,13 +33,13 @@ public class Advert {
     private String photo;
 
     @Column(name = "price")
-    private Double price;
+    private BigDecimal price;
 
     @Column(name = "sale")
-    private Double sale;
+    private BigDecimal sale;
 
     @Column(name = "final_price")
-    private Double final_price;
+    private BigDecimal final_price;
 
     @CreationTimestamp
     @Column(name = "created_at")
@@ -43,9 +51,11 @@ public class Advert {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private User users;
+    @JsonBackReference
+    private User usersAdverts;
 
-    @OneToOne
-    @JoinColumn(name = "adverts_fk_1", referencedColumnName = "id")
-    private Category categories;
+//    @OneToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "adverts_fk_1", referencedColumnName = "id")
+////    @MapsId
+//    private Category categories;
 }
