@@ -14,7 +14,7 @@ public class CategoriesRepository {
 
     private final CategoriesRepositoryDao categoriesRepositoryDao;
 
-    public Category getCategoryById (UUID uuid) {
-        return categoriesRepositoryDao.getReferenceById(uuid);
+    public Category getCategoryById(UUID uuid) {
+        return categoriesRepositoryDao.findById(uuid).get();
     }
 }
